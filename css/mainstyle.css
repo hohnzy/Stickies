@@ -1,0 +1,55 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.stickie {
+    background-color: #FFFBAB;
+    /*position: relative;*/
+    border: 1px solid #FFCF40;
+    border-radius: 3px;
+    text-align: center;
+    padding: 20px;
+    margin: 15px auto 0px auto;
+    /*z-index: 9000;*/
+    max-width: 250px;
+    text-align: left;
+}
+
+form {
+    margin: 10px 0 30px 0;
+}
+
+#new_stickie {
+    border: 1px solid #a5a5a5;
+    border-radius: 4px;
+    padding: 30px 15px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+#new_stickie:focus {
+    outline: none;
+}
+
+#button_add {
+    height: 70px;
+    width: 70px;
+    margin: 10px 0 30px 0;
+    border-radius: 50%;
+    border: 1px solid #0D58A6;
+    background-color: #4188D2;
+    color: white;
+    font-size: 50px;
+    
+}
+#button_add:focus {
+    
+}
+
+.stickie_panel {
+   display: inline;
+   margin: 0px;
+   padding: 3px; 
+}

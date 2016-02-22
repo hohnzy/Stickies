@@ -1,0 +1,71 @@
+#main {
+	text-align: center;
+	font-family: sans-serif;
+}
+
+
+.big-button {
+	width: 30%;
+}
+
+input {
+	padding: 7px;
+	margin: 10px;
+}
+
+
+
+.delete-button, 
+.small-button  {
+	height: 30px;
+	width: 30px;
+	top: 12%;
+	margin-right: 10px;
+	display: none;
+}
+
+#small-left-section {
+	text-align: right;
+	float:right;
+}
+
+button {
+	border: none;
+}
+
+img {
+	width: 100%;
+}
+
+
+.sticker {
+	width: 20%;
+	min-width: 50px;
+	min-height: 50px;
+	background-color: yellow;
+	border: 3px solid black;
+	margin:10px;
+	display: none;
+	padding: 10px;
+}
+
+.flex {
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.sticker-container {
+-webkit-box-orient:vertical;
+-webkit-box-direction:normal;
+-webkit-flex-direction:column;
+    -ms-flex-direction:column;
+        flex-direction:column;
+max-height:100vh;
+
+}
+
