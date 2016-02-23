@@ -3,6 +3,9 @@
 [![Join the chat at https://gitter.im/hohnzy/Stickies](https://badges.gitter.im/hohnzy/Stickies.svg)](https://gitter.im/hohnzy/Stickies?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Learning project for freeCodeCamp
 
+
+
+
 Postup jak commitovat zmeny na GitHub:
 1. je třeba být v repozitáři . Pohyb mezi adresáři pomocí příkazu 'cd'
 milangit:~/workspace/Stickies (master) $ 

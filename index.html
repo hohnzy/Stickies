@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <!-- UTF-8 | Bootstrap load | CSS load | jquery load -->
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <title>
-            Stickies    
-        </title>
         
+        
+        <title>Stickies</title>
     </head>
     
     <body>
-        <div id="main_area">
+        
+        <!-- Hlavní okno s výpisem stickies -->
+        <div id="mainArea">
             
-                <div contenteditable="true" id="new_stickie" class="input1">
-                </div>
-                <!--<textarea name="name" rows="8" cols="40" placeholder="Stickie Body" class="input2"></textarea>-->
-                <button type="button" id="button_add" class="submitt">+</button>
-            
-            
+                <!-- formulář pro vyplnění nového stickie -->
+                <div id="newStickie" contenteditable="true"></div>
+                
+                <!-- tlačítko na potvrzení nového sticke -->
+                <button type="button" id="addButton" class="btn btn-primary submit">
+                    Add new note
+                </button>
             
         </div>
+        
+        
+        
+        <!-- Javascript file load -->
         <script src="js/script.js"></script>
+        
     </body>
 </html>

@@ -1,55 +1,107 @@
+/*  Úvodní definice
+    Zarovnání na střed a neustálé zobrazení y-scrollbaru     */
+
 body {
     margin: 0 auto;
     text-align: center;
     overflow-y: scroll;
 }
 
+
+
+/*  Jednotlivé stickie
+    ==================    */
+
+/*  Hlavní okno stickie     */    
+.stickie_container {
+    margin: 30px 0;
+}
 .stickie {
-    background-color: #FFFBAB;
-    /*position: relative;*/
-    border: 1px solid #FFCF40;
-    border-radius: 3px;
-    text-align: center;
-    padding: 20px;
+    background-color: #FFDD40;
+    border: 1px solid #FFD200;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 20px 10px;
     margin: 15px auto 0px auto;
-    /*z-index: 9000;*/
     max-width: 250px;
     text-align: left;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.stickie_panel {
+   max-width: 250px;
+   height: 18px;
+   margin: 0 auto;
+   background-color: #BFA630;
+   border-bottom-left-radius: 3px;
+   border-bottom-right-radius: 3px;
+   color: #333;
 }
 
-form {
-    margin: 10px 0 30px 0;
+/*  Lišta pod stickie
+    -----------------    */
+
+/*    Datum vložení stickie     */
+.stickieDate {
+    border-radius: 0px;
+    font-size: 0.7em;
+    font-style: italic;
+    float: left;
+    margin: 2px 7px;
+    color: #444;
 }
 
-#new_stickie {
+/*    X - mazání stickies     */
+.delete_stickie {
+    float: right;
+    margin: 1px;
+    color: #444;
+    background-color: transparent;
+    cursor: pointer;
+}
+.delete_stickie:hover {
+    background-color: transparent;
+    font-weight: bold;
+    color: #000;
+}
+
+/*    Edit stickie    */
+.edit_button {
+    float: right;
+    margin: 1px;
+    color: #444;
+    background-color: transparent;
+    cursor: pointer;
+}
+.edit_button:hover {
+    background-color: transparent;
+    font-weight: bold;
+    color: #000;
+}
+
+
+
+/*  formulář pro vyplnění nového stickie
+    ====================================    */
+    
+#newStickie {
     border: 1px solid #a5a5a5;
     border-radius: 4px;
+    min-height: 82px;
     padding: 30px 15px;
     max-width: 250px;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
+    text-align: left;
 }
-
-#new_stickie:focus {
+#newStickie:focus {
     outline: none;
 }
 
-#button_add {
-    height: 70px;
-    width: 70px;
-    margin: 10px 0 30px 0;
-    border-radius: 50%;
-    border: 1px solid #0D58A6;
-    background-color: #4188D2;
-    color: white;
-    font-size: 50px;
-    
-}
-#button_add:focus {
-    
-}
 
-.stickie_panel {
-   display: inline;
-   margin: 0px;
-   padding: 3px; 
+
+/*  Tlačítko na přidání sticke     */
+
+#addButton {
+    margin: 5px auto 0 auto;
+    padding: 10px 30px;
 }
