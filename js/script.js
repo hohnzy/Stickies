@@ -37,9 +37,8 @@ $(document).ready(function() {
     // po kliknuti na "tuzticku" povoli moznost upravy
     $("#mainArea").on("click", ".editStickieButton", function(){
         $(this).closest(".stickieContainer").children(".stickie").attr("contenteditable", "true").focusout(function(){
-			$(".stickie").attr("contenteditable", "false")
+			$(".stickie").attr("contenteditable", "false");
 		});
     });
-
 
 });
