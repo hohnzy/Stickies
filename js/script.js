@@ -1,39 +1,35 @@
 $(document).ready(function() {
 
-    
-  
+    // pokud je plocha prázdná, je vidět pouze plusButton
     $("#plusButton").on("click",function(){
-  $(this).fadeOut(0);
-  $("#newStickie").fadeIn(1000);
-  $("#textarea").fadeIn(1000);
-  $("#addButton").fadeIn(1000);
+        $(this).fadeOut(0);
+        $("#newStickieHeader").fadeIn(1000);
+        $("#newStickieBody").fadeIn(1000);
+    $("#addButton").fadeIn(1000);
+    
 })
     
     // při kliknutí na button přidá nový stickie s textem, který prevezme z textového inputu
     $("#addButton").click(function() {
         
         // pokud je formulář na vyplnění nového stickie prázdný, tak se nic nestane
-        if ($('#newStickie').text().trim().length != 0) 
+        if ($('#newStickieHeader').text().trim().length != 0) 
         {
             
+              // sortable
+            $("#stickieArea").sortable();
+    
+            
             // vytvoření struktury stickie
-            $("#mainArea").append(
+            $("#stickieArea").append(
             "<div class='stickieContainer'>" +
-                "<div class='stickie'>" +
-                    $('#newStickie').html() +
+                "<div class='stickieHeader'>" +
+                    $('#newStickieHeader').html() +
                 "</div>" +
                 
-                
-                
-                
-                // pracuji David
                 "<div class='stickieBody'>" +
-                    $('#textarea').text() +
+                    $('#newStickieBody').text() +
                 "</div>" +
-                
-                
-                
-                
                 
                 "<div class='stickiePanel'>" + 
                     "<span class='stickieDate'>" +
@@ -45,9 +41,9 @@ $(document).ready(function() {
                     "<div class='btn-info glyphicon glyphicon-chevron-left makeFontSmaller'></div>" + 
                 "</div>" +
                 
-                // Honza - změna barev
+                // změna barev
                 "<div class='stickieColor'>" +
-                    "<div class='colorYellow changeColor'></div>" +
+                    "<div class='colorYellow changeColor'> </div>" +
                     "<div class='colorBlue changeColor'> </div>" +
                     "<div class='colorRed changeColor'> </div>" +
                     "<div class='colorGreen changeColor'> </div>" +
@@ -56,16 +52,10 @@ $(document).ready(function() {
             "</div>");
             
             // Po vytvoření stickie se vymaže text ve formuláři
-            $("#newStickie").text("");
-            
-            
-            /* pracuji David
-            $("#textarea").text("");
-            */
+            $("#newStickieHeader").text("");
+            $("#newStickieBody").text("");
             
         }
-        
-
         
     });
     
@@ -78,10 +68,10 @@ $(document).ready(function() {
     // po kliknuti na "tuzticku" povoli moznost upravy
     $("#mainArea").on("click", ".editStickieButton", function(){
         
-        $(this).closest(".stickieContainer").children(".stickie").attr("contenteditable", "true");
-        $(this).closest(".stickieContainer").children(".stickie").focus();
-        $(this).closest(".stickieContainer").children(".stickie").focusout(function(){
- 			$(".stickie").attr("contenteditable", "false");
+        $(this).closest(".stickieContainer").children(".stickieBody").attr("contenteditable", "true");
+        $(this).closest(".stickieContainer").children(".stickieBody").focus();
+        $(this).closest(".stickieContainer").children(".stickieBody").focusout(function(){
+ 			$(".stickieBody").attr("contenteditable", "false");
         });
         
 //         $(this).closest(".stickieContainer").children(".stickie").attr("contenteditable", "true").focusout(function(){
@@ -93,10 +83,10 @@ $(document).ready(function() {
        // po kliknuti na "<" se zmenší písmo 1px (zatim nevím jak to udělat aby se aplikovalo pouze na 1 stickie)
         $("#mainArea").on("click", ".makeFontSmaller", function(){
             
-            var fontSize = parseInt($(".stickie").css("font-size"));
+            var fontSize = parseInt($(".stickieBody").css("font-size"));
             fontSize = fontSize - 1 + "px";
-            
-            $(this).closest(".stickieContainer").children(".stickie").css({'font-size':fontSize});
+            console.log(fontSize);
+            $(this).closest(".stickieContainer").children(".stickieBody").css({'font-size':fontSize});
     });
     
     
@@ -106,19 +96,25 @@ $(document).ready(function() {
        
         $("#mainArea").on("click", ".makeFontBigger", function(){
             
-            var fontSize = parseInt($(".stickie").css("font-size"));
+            var fontSize = parseInt($(".stickieBody").css("font-size"));
             fontSize = fontSize + 1 + "px";
             
-            $(this).closest(".stickieContainer").children(".stickie").css({'font-size':fontSize});
+            $(this).closest(".stickieContainer").children(".stickieBody").css({'font-size':fontSize});
     });
     
         // Změna barev
     $("#mainArea").on("click", ".changeColor", function (){
         var stickieColor = $(this).css("background-color");
         var panelColor = $(this).css("color");
-        $(this).closest(".stickieContainer").children(".stickie").css(  {
+        $(this).closest(".stickieContainer").children(".stickieHeader").css(  {
                                                                         'background-color': stickieColor,
                                                                         'border-top-color': panelColor,
+                                                                        'border-left-color': panelColor,
+                                                                        'border-right-color': panelColor
+                                                                        }
+        );
+        $(this).closest(".stickieContainer").children(".stickieBody").css(  {
+                                                                        'background-color': stickieColor,
                                                                         'border-left-color': panelColor,
                                                                         'border-right-color': panelColor
                                                                         }
@@ -134,7 +130,7 @@ $(document).ready(function() {
     // pokusy s řazením stickies
     /*
     var colCount = 0;
-    var colWidth = 250;
+    var colWidth = 270;
     var margin = 20;
     var windowWidth = 0;
     var blocks = [];
@@ -145,7 +141,7 @@ $(document).ready(function() {
         //colWidth = $(".stickieContainer", document).outerWidth();
         //console.log(colWidth);
         colCount = Math.floor(windowWidth / (colWidth + margin));
-        console.log(colCount);
+        //console.log(colCount);
         for(var i = 0; i < colCount; i++) {
             blocks.push(margin + $("mainArea").height());
         }
